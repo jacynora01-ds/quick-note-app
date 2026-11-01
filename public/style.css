@@ -6,42 +6,44 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6fb;
-    padding: 30px;
+    background: #f3f4f8;
+    color: #222;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 header h1 {
-    color: #333;
     font-size: 36px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
 header p {
     color: #777;
-    margin-top: 10px;
+    font-size: 15px;
 }
 
 .note-form {
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    margin-bottom: 35px;
 }
 
 .note-form h2,
 .notes-section h2 {
     margin-bottom: 20px;
-    color: #333;
 }
 
 input,
@@ -52,38 +54,46 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 15px;
+    font-family: inherit;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #6c63ff;
 }
 
 textarea {
-    height: 120px;
+    min-height: 120px;
     resize: vertical;
 }
 
 button {
-    background: #635bff;
+    background: #6c63ff;
     color: white;
     border: none;
-    padding: 12px 22px;
+    padding: 13px 22px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 15px;
+    transition: 0.2s;
 }
 
 button:hover {
-    background: #4940d9;
+    background: #5148dc;
 }
 
-#notes-container {
+.notes-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
 }
 
 .note-card {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     overflow-wrap: anywhere;
 }
 
@@ -94,24 +104,39 @@ button:hover {
 
 .note-card p {
     color: #666;
-    margin-bottom: 18px;
+    line-height: 1.5;
     white-space: pre-wrap;
+    margin-bottom: 18px;
 }
 
-.delete-btn {
-    background: #ff4d4d;
+.delete-button {
+    background: #e74c3c;
+    padding: 9px 15px;
+    font-size: 13px;
 }
 
-.delete-btn:hover {
-    background: #d93636;
+.delete-button:hover {
+    background: #c0392b;
+}
+
+.empty-message {
+    color: #888;
+    text-align: center;
+    padding: 20px;
+    grid-column: 1 / -1;
 }
 
 @media (max-width: 600px) {
-    body {
+    .container {
+        margin: 15px auto;
         padding: 15px;
     }
 
     header h1 {
         font-size: 28px;
+    }
+
+    .note-form {
+        padding: 18px;
     }
 }

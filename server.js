@@ -5,18 +5,13 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const file = path.join(__dirname, 'data', 'notes.json');
 
 function getNotes() {
     return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
-
-// Home Route
-app.get('/', (req, res) => {
-    res.send('Quick Note Application Backend is Running!');
-});
 
 // GET - Display all notes
 app.get('/notes', (req, res) => {
@@ -27,7 +22,6 @@ app.get('/notes', (req, res) => {
 // POST - Create a new note
 app.post('/notes', (req, res) => {
     const notes = getNotes();
-
     const { title, content } = req.body;
 
     if (!title || !content) {
@@ -55,7 +49,6 @@ app.post('/notes', (req, res) => {
 // DELETE - Delete a note
 app.delete('/notes/:id', (req, res) => {
     const notes = getNotes();
-
     const id = Number(req.params.id);
 
     const updatedNotes = notes.filter(note => note.id !== id);
@@ -74,8 +67,8 @@ app.delete('/notes/:id', (req, res) => {
 });
 
 // Start Server
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
