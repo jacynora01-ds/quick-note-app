@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Notes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>📝 Quick Notes</h1>
+            <p>Capture your thoughts, anytime.</p>
+        </header>
+
+        <section class="note-form">
+            <h2>Create a New Note</h2>
+
+            <input type="text" id="title" placeholder="Enter note title">
+
+            <textarea id="content" placeholder="Write your note here..."></textarea>
+
+            <button onclick="addNote()">+ Add Note</button>
+        </section>
+
+        <section class="notes-section">
+            <h2>My Notes</h2>
+            <div id="notes-container"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
